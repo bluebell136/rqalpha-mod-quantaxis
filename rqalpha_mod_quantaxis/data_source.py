@@ -25,7 +25,7 @@ class QUANTAXISKDataSource(BaseDataSource):
 
     def __init__(self, path,custom_future_info):
         super(QUANTAXISKDataSource, self).__init__(path,custom_future_info)
-        self.trading_dates_mixin = TradingDatesMixin(self.get_trading_calendar())
+        self.trading_dates_mixin = TradingDatesMixin(self.get_trading_calendars())
 
     def _get_period_cache(self,order_book_id,start_dt,end_dt):
         df = self._cache[order_book_id]
