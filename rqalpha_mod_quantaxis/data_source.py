@@ -78,12 +78,12 @@ class QUANTAXISKDataSource(BaseDataSource):
         _is_None=True
 
         if instrument.type == 'CS':
-            data=QA.QAFetch.QATdx.QA_fetch_get_stock_day(code,end_dt.strftime('%Y-%m-%d'),end_dt.strftime('%Y-%m-%d'))
+            data=QA.QA_fetch_stock_day(code,end_dt.strftime('%Y-%m-%d'),end_dt.strftime('%Y-%m-%d'))
             if data.size>0 :
                 _is_None=False
                 tick=QA.QAFetch.QATdx.QA_fetch_get_stock_transaction(code,start_dt.strftime('%Y-%m-%d'),end_dt.strftime('%Y-%m-%d'))
         elif instrument.type == 'INDX':
-            data=QA.QAFetch.QATdx.QA_fetch_get_index_day(code,end_dt.strftime('%Y-%m-%d'),end_dt.strftime('%Y-%m-%d'))
+            data=QA.QA_fetch_index_day(code,end_dt.strftime('%Y-%m-%d'),end_dt.strftime('%Y-%m-%d'))
             if data.size>0 :
                 _is_None=False
                 tick=QA.QAFetch.QATdx.QA_fetch_get_index_transaction(code,start_dt.strftime('%Y-%m-%d'),end_dt.strftime('%Y-%m-%d'))
